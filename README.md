@@ -47,6 +47,7 @@ python3 main.py --train-batch 32 --iter-size 4 --gpu 0
 
 ```
 python3 main.py -e --resume checkpoint/Tiger/model.pth.tar --val-batch 2
+python3 eval.py
 ```
 
 ### Performance
