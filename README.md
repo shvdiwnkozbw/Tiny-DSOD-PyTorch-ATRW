@@ -13,8 +13,9 @@ It currently achives 47.1 mAP, we are still working on improving the performance
 - Python 3.5 
 - PyTorch 0.4.1
 - opencv 3.4.1
+- pycocotools
 
-## Training
+## Running Procedure
 
 #### Data preparation
 
