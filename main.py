@@ -1,9 +1,9 @@
 import torch
 import torch.utils.data as data
 import torch.optim as optim
-from dataloader import TigerData, DataAllocate
-from framework import Framework, MultiBoxLoss, GTGenerator, PriorBox, Detector
-from logger import AverageMeter, Logger
+from data.dataloader import TigerData, DataAllocate
+from model.framework import Framework, MultiBoxLoss, GTGenerator, PriorBox, Detector
+from utils.logger import AverageMeter, Logger
 import pickle
 import os
 import argparse
@@ -68,7 +68,7 @@ args = parse_args()
 os.environ['CUDA_VISIBLE_DEVICES'] = args.gpu_id
 use_gpu = torch.cuda.is_available() and int(args.gpu_id) >= 0
 
-with open('det.pkl', 'rb') as f:
+with open('data/det.pkl', 'rb') as f:
     info = pickle.load(f, encoding='bytes')
 
 def main():
@@ -227,7 +227,7 @@ def test(valloader, model, priors, detector, epoch, use_gpu):
         bar.next()
     bar.finish()
     
-    with open('res.json', 'w') as f:
+    with open('utils/res.json', 'w') as f:
         json.dump(result, f)
 
 
