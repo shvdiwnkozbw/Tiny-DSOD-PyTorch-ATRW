@@ -19,8 +19,8 @@ It currently achives 47.1 mAP, we are still working on improving the performance
 #### Data preparation
 
 - Download ATRW Dataset from [CVWC](https://cvwc2019.github.io/) 
-- Split training set and validation set
-- Generate VOC-form annotation running data.py
+- Split training set and validation set following [Tiny-DSOD](https://github.com/lyxok1/Tiny-DSOD)
+- Generate VOC-form annotation running ```./data/data.py```
 
 #### Training
 
@@ -47,8 +47,12 @@ python3 main.py --train-batch 32 --iter-size 4 --gpu 0
 
 ```
 python3 main.py -e --resume checkpoint/Tiger/model.pth.tar --val-batch 2
-python3 eval.py
+python3 utils/eval.py
 ```
+
+Running ```main.py``` in evaluation mode generates detection results in ```./utils/res.json``` in form of COCO.
+
+Running ```./utils/eval.py``` outputs mAP on ATRW Dataset.
 
 ### Performance
 
